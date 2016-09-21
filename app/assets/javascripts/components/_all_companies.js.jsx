@@ -3,17 +3,22 @@ var AllCompanies = React.createClass({
     this.props.handleDelete(id);
   },
 
+  onUpdate(company) {
+    this.props.onUpdate(company);
+  },
+
   render() {
-    var companies = this.props.companies.map((company) => {
+    var companies= this.props.companies.map((company) => {
       return (
         <div key={company.id}>
-          <h3>{company.name}</h3>
-          <button onClick={this.handleDelete.bind(this, company.id)}>Delete</button>
+          <Company company={company}
+            handleDelete={this.handleDelete.bind(this, company.id)}
+            handleUpdate={this.onUpdate}/>
         </div>
       )
     });
 
-    return (
+    return(
       <div>
         {companies}
       </div>

@@ -4,7 +4,7 @@ var Body = React.createClass({
   },
 
   componentDidMount() {
-    $.getJSON('api/v1/companies.json', (response) => { this.setState({ companies: response }) });
+    $.getJSON('/api/v1/companies.json', (response) => { this.setState({ companies: response }) });
   },
 
   handleSubmit(company) {
@@ -14,7 +14,7 @@ var Body = React.createClass({
 
   handleDelete(id) {
     $.ajax({
-      url: '/api/v1/companies/${id}',
+      url: `/api/v1/companies/${id}`,
       type: 'DELETE',
       success:() => {
         this.removeCompanyClient(id);
@@ -30,11 +30,28 @@ var Body = React.createClass({
     this.setState({ companies: newCompanies });
   },
 
+  handleUpdate(company) {
+    $.ajax({
+      url: `/api/v1/companies/${company.id}`,
+      type: 'PUT',
+      data: { company: company },
+      success: () => {
+        this.updateCompanies(company);
+      }
+    });
+  },
+
+  updateCompanies(company) {
+    var companies = this.state.companies.filter((i) => { return i.id != company.id });
+    companies.push(company);
+    this.setState({companies: companies });
+  },
+
   render() {
     return (
       <div>
         <NewCompany handleSubmit={this.handleSubmit}/>
-        <AllCompanies companies={this.state.companies} handleDelete={this.handleDelete}/>
+        <AllCompanies companies={this.state.companies}  handleDelete={this.handleDelete} onUpdate={this.handleUpdate}/>
       </div>
     )
   }

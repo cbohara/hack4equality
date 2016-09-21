@@ -1,11 +1,11 @@
 var NewCompany = React.createClass({
   handleClick() {
-    var name = this.refs.name.value;
+    var name    = this.refs.name.value;
     $.ajax({
       url: '/api/v1/companies',
       type: 'POST',
       data: { company: { name: name } },
-      success: (company) => {
+        success: (company) => {
         this.props.handleSubmit(company);
       }
     });
@@ -14,7 +14,7 @@ var NewCompany = React.createClass({
   render() {
     return (
       <div>
-        <input ref='name' placeholder='Enter company name' />
+        <input ref='name' placeholder='Enter Company Name' />
         <button onClick={this.handleClick}>Submit</button>
       </div>
     )
