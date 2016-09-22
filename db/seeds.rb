@@ -65,3 +65,14 @@ Company.create!(name: tjs.name,
                 compensationAndBenefitsRating: tjs.compensationAndBenefitsRating,
                 careerOpportunitiesRating: tjs.careerOpportunitiesRating,
                 cultureAndValuesRating: tjs.cultureAndValuesRating)
+
+starbucks = Glassdoor.new("starbucks")
+Company.create!(name: starbucks.name,
+                website: starbucks.website,
+                squareLogo: starbucks.squareLogo,
+                overallRating: starbucks.overallRating,
+                recommendToFriendRating: starbucks.recommendToFriendRating,
+                ratingDescription: starbucks.ratingDescription,
+                compensationAndBenefitsRating: starbucks.compensationAndBenefitsRating,
+                careerOpportunitiesRating: starbucks.careerOpportunitiesRating,
+                cultureAndValuesRating: starbucks.cultureAndValuesRating)
