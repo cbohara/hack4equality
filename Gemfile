@@ -45,3 +45,4 @@ group :development do
 end
 gem 'responders'
 gem 'react-rails'
+gem 'httparty'
