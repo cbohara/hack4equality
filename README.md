@@ -22,8 +22,4 @@
 
   - docker-compose run app rake db:reset db:migrate
 
-- testing with RSpec
-
-  - docker-compose run app rake db:create db:migrate db:seed RAILS_ENV=test
-
-  - docker-compose run app bundle exec rspec
+  - docker-compose run app rake db:seed
