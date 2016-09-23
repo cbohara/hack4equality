@@ -15,64 +15,85 @@ class Glassdoor
 
   def initialize(company_name)
     @company_name = company_name
-    @response = self.class.get("/api/api.htm?t.p=92900&t.k=jw0i2Cakuei&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&ps=1&q=#{@company_name}").parsed_response
+    @response = self.class.get("/api/api.htm?t.p=92900&t.k=jw0i2Cakuei&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&ps=1&q=#{@company_name}").parsed_response['response']['employers'][0]
   end
 
   def name
-    @response['response']['employers'][0]['name']
+    @response['name']
   end
 
   def website
-    @response['response']['employers'][0]['website']
+    @response['website']
   end
 
   def squareLogo
-    @response['response']['employers'][0]['squareLogo']
+    @response['squareLogo']
   end
 
   def overallRating
-    @response['response']['employers'][0]['overallRating']
+    @response['overallRating']
   end
 
   def recommendToFriendRating
-    @response['response']['employers'][0]['recommendToFriendRating']
+    @response['recommendToFriendRating']
   end
 
   def ratingDescription
-    @response['response']['employers'][0]['ratingDescription']
+    @response['ratingDescription']
   end
 
   def compensationAndBenefitsRating
-    @response['response']['employers'][0]['compensationAndBenefitsRating']
+    @response['compensationAndBenefitsRating']
   end
 
   def careerOpportunitiesRating
-    @response['response']['employers'][0]['careerOpportunitiesRating']
+    @response['careerOpportunitiesRating']
   end
 
   def cultureAndValuesRating
-    @response['response']['employers'][0]['cultureAndValuesRating']
+    @response['cultureAndValuesRating']
+  end
+
+  def create!
+    Company.create!(name: self.name,
+                    website: self.website,
+                    squareLogo: self.squareLogo,
+                    overallRating: self.overallRating,
+                    recommendToFriendRating: self.recommendToFriendRating,
+                    ratingDescription: self.ratingDescription,
+                    compensationAndBenefitsRating: self.compensationAndBenefitsRating,
+                    careerOpportunitiesRating: self.careerOpportunitiesRating,
+                    cultureAndValuesRating: self.cultureAndValuesRating)
   end
 end
 
-tjs = Glassdoor.new("trader joe's")
-Company.create!(name: tjs.name,
-                website: tjs.website,
-                squareLogo: tjs.squareLogo,
-                overallRating: tjs.overallRating,
-                recommendToFriendRating: tjs.recommendToFriendRating,
-                ratingDescription: tjs.ratingDescription,
-                compensationAndBenefitsRating: tjs.compensationAndBenefitsRating,
-                careerOpportunitiesRating: tjs.careerOpportunitiesRating,
-                cultureAndValuesRating: tjs.cultureAndValuesRating)
 
-starbucks = Glassdoor.new("starbucks")
-Company.create!(name: starbucks.name,
-                website: starbucks.website,
-                squareLogo: starbucks.squareLogo,
-                overallRating: starbucks.overallRating,
-                recommendToFriendRating: starbucks.recommendToFriendRating,
-                ratingDescription: starbucks.ratingDescription,
-                compensationAndBenefitsRating: starbucks.compensationAndBenefitsRating,
-                careerOpportunitiesRating: starbucks.careerOpportunitiesRating,
-                cultureAndValuesRating: starbucks.cultureAndValuesRating)
+three = Glassdoor.new("3M Co.")
+three.create!
+
+aber = Glassdoor.new("Abercrombie & Fitch Co.")
+aber.create!
+
+acc = Glassdoor.new("Accenture")
+acc.create!
+
+adidas = Glassdoor.new("Adidas")
+adidas.create!
+
+adobe = Glassdoor.new("Adobe Systems Inc.")
+adobe.create!
+
+aetna = Glassdoor.new("Aetna Inc.")
+aetna.create!
+
+aig = Glassdoor.new("AIG")
+aig.create!
+
+airbnb = Glassdoor.new("Airbnb Inc.")
+airbnb.create!
+
+starbucks = Glassdoor.new("Starbucks")
+starbucks.create!
+
+tjs = Glassdoor.new("Trader Joe's")
+tjs.create!
