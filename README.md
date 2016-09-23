@@ -1,6 +1,7 @@
-### Back-end: Rails 4 API
+### Building a CRUD interface with React and Ruby on Rails
 
-### Front-end: React
+http://tutorials.pluralsight.com/ruby-ruby-on-rails/building-a-crud-interface-with-react-and-ruby-on-rails
+
 
 ### Docker Cheatsheet
 
