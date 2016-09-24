@@ -3,6 +3,12 @@
 http://tutorials.pluralsight.com/ruby-ruby-on-rails/building-a-crud-interface-with-react-and-ruby-on-rails
 
 
+### Tools
+
+react-rails gem
+
+Docker containers
+
 ### Docker Cheatsheet
 
 - build docker image based on Dockerfile
