@@ -10,9 +10,11 @@ http://tutorials.pluralsight.com/ruby-ruby-on-rails/building-a-crud-interface-wi
 
 ### Tools
 
+Rails 4.2.4
+
 react-rails gem
 
-Docker containers
+Docker
 
 ### Docker Cheatsheet
 
