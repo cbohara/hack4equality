@@ -1,5 +1,13 @@
 ### Building a CRUD interface with React and Ruby on Rails
 
+Built basic Rails 4 API to render data in JSON
+
+Using react-rails gem
+
+React is handling the views and display of data
+
+http://tutorials.pluralsight.com/ruby-ruby-on-rails/building-a-crud-interface-with-react-and-ruby-on-rails
+
 ### Tools
 
 react-rails gem
