@@ -10,6 +10,14 @@ Based on Pluralsight tutorial:
 
 http://tutorials.pluralsight.com/ruby-ruby-on-rails/building-a-crud-interface-with-react-and-ruby-on-rails
 
+Live at:
+
+https://cbohara-company-api.herokuapp.com
+
+API at:
+
+https://cbohara-company-api.herokuapp.com/api/v1/companies.json
+
 ### Tools
 
 Rails 4.2.4
